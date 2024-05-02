@@ -12,7 +12,6 @@ namespace AutomationPracticeSolution.PageObjects
         private By addToCartButton = By.Name("Submit");
         private By searchInput = By.Id("search_query_top");
         private By searchButton = By.Name("submit_search");
-        private By signInButton = By.ClassName("login");
         private By proceedToCheckoutButton = By.CssSelector("a[title='Proceed to checkout']");
 
         public string GetResultHeadingText()
@@ -33,10 +32,6 @@ namespace AutomationPracticeSolution.PageObjects
         public void ProceedToCheckout()
         {
             Click(proceedToCheckoutButton);
-        }
-        public void ClickSignIn()
-        {
-            Click(signInButton);
         }
     }
 }
