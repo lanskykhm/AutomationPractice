@@ -15,9 +15,9 @@ namespace AutomationPracticeSolution.Tests
             try
             {
                 CheckoutPage checkoutPage = new CheckoutPage();
-                checkoutPage.NavigateToUrl("http://www.automationpractice.pl/checkout");
+                checkoutPage.NavigateToUrl("http://www.automationpractice.pl");
                 WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-                wait.Until(ExpectedConditions.ElementIsVisible(By.Id("checkout")));
+                wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("checkout")));
                 checkoutPage.EnterShippingDetails("Mariia Lanskykh", "lanskix.mariya@gmail.com", "095 Street", "Kyiv", "12345", "Ukraine");
                 checkoutPage.SelectShippingMethod("Standard Delivery");
                 checkoutPage.AcceptTermsAndConditions();

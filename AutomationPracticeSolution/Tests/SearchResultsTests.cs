@@ -12,7 +12,8 @@ namespace AutomationPracticeSolution.Tests
         public void TestSearch()
         {
             try
-            {
+            {   
+                Driver.Navigate().GoToUrl("http://www.automationpractice.pl");
                 SearchResultPage searchResult = new SearchResultPage();
                 searchResult.Search("dress");
 
@@ -21,7 +22,7 @@ namespace AutomationPracticeSolution.Tests
 
                 Console.WriteLine($"Search result heading: {resultHeading}");
 
-                Assert.That(resultHeading.Contains("dress"), "Search result does not contain expected keyword");
+                Assert.Equals(resultHeading.Contains("dress"), "Search result does not contain expected keyword");
             }
             catch (Exception ex)
             {

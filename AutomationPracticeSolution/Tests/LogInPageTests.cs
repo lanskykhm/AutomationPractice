@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
+using AutomationPracticeSolution.PageObjects;
 
 namespace AutomationPracticeSolution.Tests
 {
@@ -17,14 +18,14 @@ namespace AutomationPracticeSolution.Tests
             {
                 LoginPage loginPage = new LoginPage();
                 loginPage.NavigateToUrl("http://www.automationpractice.pl/");
-                loginPage.ClickSignIn();
+                loginPage.ClickLogIn();
 
                 WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
                 IWebElement emailInput = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("email")));
-                loginPage.EnterEmail("validemail@example.com");
+                loginPage.EnterEmail("lanskix.mariya@gmail.com");
 
                 IWebElement passwordInput = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("passwd")));
-                loginPage.EnterPassword("password");
+                loginPage.EnterPassword("password123");
 
                 IWebElement signInButton = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("SubmitLogin")));
                 loginPage.ClickSignIn();
@@ -46,11 +47,11 @@ namespace AutomationPracticeSolution.Tests
             {
                 LoginPage loginPage = new LoginPage();
                 loginPage.NavigateToUrl("http://www.automationpractice.pl/");
-                loginPage.ClickSignIn();
+                loginPage.ClickLogIn();
 
                 WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
                 IWebElement emailInput = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("email")));
-                loginPage.EnterEmail("invalidemail@example.com");
+                loginPage.EnterEmail("invalidemail@ыуа.com");
 
                 IWebElement passwordInput = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("passwd")));
                 loginPage.EnterPassword("invalidpassword");
