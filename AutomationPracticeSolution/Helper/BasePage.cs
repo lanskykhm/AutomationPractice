@@ -1,6 +1,8 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
+
 using System;
 
 namespace AutomationPracticeSolution.Helper
@@ -51,6 +53,12 @@ namespace AutomationPracticeSolution.Helper
             {
             }
         }
+        public void ScrollToElement(IWebElement element)
+        {
+            Actions actions = new Actions(Driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
 
         public void EnterText(By locator, string text)
         {
@@ -99,9 +107,9 @@ namespace AutomationPracticeSolution.Helper
             catch (NoSuchElementException)
             {
             }
-        }
-        protected void SelectElement(By locator, string text)
-        {
+            }
+            public void SelectElement(By locator, string text)
+            {   
             try
             {
                 var dropdown = Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator));
