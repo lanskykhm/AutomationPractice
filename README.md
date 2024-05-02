@@ -20,9 +20,13 @@ This project contains automated tests to verify the functionality of the www.aut
 ```dotnet test```
 
 ## Project structure
-- `Tests/` - contains tests for each page of the website
-- `PageObjects/` - contains Page Objects for each page of the website
-- `Helper/` - contains BasePage class
+- [Tests/](https://github.com/lanskykhm/AutomationPractice/tree/main/AutomationPracticeSolution/Tests) - contains tests for each page of the website
+- [PageObjects/](https://github.com/lanskykhm/AutomationPractice/tree/main/AutomationPracticeSolution/PageObjects) - contains Page Objects for each page of the website
+- [Helper/](https://github.com/lanskykhm/AutomationPractice/tree/main/AutomationPracticeSolution/Helper) - contains BasePage class
 
 ## Author
 Mariia Lanskykh
+
+## Additional:
+[BugReport](https://github.com/lanskykhm/AutomationPractice/blob/main/BugReport.md)
+
