@@ -5,25 +5,23 @@ namespace AutomationPracticeSolution.PageObjects
 {
     public class HomePage : BasePage
     {
-        private By _logInButton = By.CssSelector(".login");
-
         public HomePage() : base()
         {
         }
 
-        public void ClickLogIn()
-        {
-            Click(_logInButton);
-        }
+        private By searchInput = By.Id("search_query_top");
+        private By searchButton = By.CssSelector("button[name='submit_search']");
+        private By signInLink = By.CssSelector(".header_user_info a.login");
 
-        internal void ClickSignIn()
-        {
-            throw new NotImplementedException();
-        }
         public void SearchForProduct(string productName)
         {
-            EnterText(By.Id("search_query_top"), productName);
-            Click(By.CssSelector("button[name='submit_search']"));
+            EnterText(searchInput, productName);
+            Click(searchButton);
+        }
+
+        public void ClickLogIn()
+        {
+            Click(signInLink);
         }
     }
 }

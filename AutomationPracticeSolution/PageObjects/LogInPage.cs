@@ -1,24 +1,39 @@
 using AutomationPracticeSolution.Helper;
 using OpenQA.Selenium;
 
-public class LoginPage : BasePage
+namespace AutomationPracticeSolution.PageObjects
 {
-    private By emailInput = By.Id("email");
-    private By passwordInput = By.Id("passwd");
-    private By signInButton = By.Id("SubmitLogin");
-
-    public void EnterEmail(string email)
+    public class LoginPage : BasePage
     {
-        Driver.FindElement(emailInput).SendKeys(email);
-    }
+        private By emailInput = By.Id("email");
+        private By passwordInput = By.Id("passwd");
+        private By signInButton = By.Id("SubmitLogin");
+        private By _logInButton = By.CssSelector(".login");
 
-    public void EnterPassword(string password)
-    {
-        Driver.FindElement(passwordInput).SendKeys(password);
-    }
+        public void EnterEmail(string email)
+        {
+            Driver.FindElement(emailInput).SendKeys(email);
+        }
 
-    public void ClickSignIn()
-    {
-        Driver.FindElement(signInButton).Click();
+        public void EnterCredentials(string email, string password)
+        {
+            EnterText(emailInput, email);
+            EnterText(passwordInput, password);
+        }
+
+        public void EnterPassword(string password)
+        {
+            Driver.FindElement(passwordInput).SendKeys(password);
+        }
+
+        public void ClickSignIn()
+        {
+            Driver.FindElement(signInButton).Click();
+        }
+        public void ClickLogIn()
+        {
+            Driver.FindElement(_logInButton).Click();
+        }
+
     }
 }
