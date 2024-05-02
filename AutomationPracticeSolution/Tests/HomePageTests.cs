@@ -31,7 +31,6 @@ namespace AutomationPracticeSolution.Tests
             HomePage homePage = new HomePage();
             homePage.NavigateToUrl("http://www.automationpractice.pl/");
             homePage.ClickLogIn();
-            // Добавьте здесь проверки, что вы перешли на страницу входа или выполните другие действия
             Console.WriteLine("SignInButton test passed.");
         }
         catch (Exception ex)

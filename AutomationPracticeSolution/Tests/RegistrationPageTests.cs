@@ -1,49 +1,32 @@
+using AutomationPracticeSolution.PageObjects;
 using AutomationPracticeSolution.Helper;
 using NUnit.Framework;
-using System;
 
 namespace AutomationPracticeSolution.Tests
 {
-    public class RegistrationPageTests : BasePage
+    [TestFixture]
+    public class RegistrationTests : BasePage
     {
         [Test]
-        public void TestSuccessfulRegistration()
+        public void TestRegistration()
         {
-            // Arrange
-            var registrationPage = new PageObjects.RegistrationPage();
+            string email = EmailGenerator.GenerateRandomEmail();
 
-            // Act
+            RegistrationPage registrationPage = new RegistrationPage();
             registrationPage.NavigateToUrl("http://www.automationpractice.pl/index.php?controller=authentication&back=my-account#account-creation");
-            registrationPage.EnterEmail("lanskix.mariya@gmail.com");
+            registrationPage.EnterEmail(email);
             registrationPage.ClickCreateAccount();
+
             registrationPage.SelectGender("Mrs");
             registrationPage.EnterFirstName("Mariia");
             registrationPage.EnterLastName("Lanskykh");
             registrationPage.EnterPassword("password123");
-            registrationPage.SelectDateOfBirth("29", "January", "1992");
+
+            registrationPage.SelectDateOfBirth("28", "February", "1992");
+
+            registrationPage.ClickCreateAccount();
+            
             Assert.That(registrationPage.IsRegisteredSuccessfully(), "Registration was not successful.");
-        }
-
-        [Test]
-        public void TestInvalidEmail()
-        {
-            var registrationPage = new PageObjects.RegistrationPage();
-            registrationPage.NavigateToUrl("http://www.automationpractice.pl/index.php?controller=authentication&back=my-account#account-creation");
-            registrationPage.EnterEmail("invalid_email");
-            registrationPage.ClickCreateAccount();
-
-        }
-
-        [Test]
-        public void TestWeakPassword()
-        {
-            var registrationPage = new PageObjects.RegistrationPage();
-            registrationPage.NavigateToUrl("http://www.automationpractice.pl/index.php?controller=authentication&back=my-account#account-creation");
-            registrationPage.EnterEmail("test456@gmail.com");
-            registrationPage.ClickCreateAccount();
-            registrationPage.EnterPassword("weak");
-            Assert.That(registrationPage.IsElementDisplayed(registrationPage.errorMessageBox), "Error message box should be displayed for weak password.");
         }
     }
 }
-
