@@ -68,7 +68,12 @@ namespace AutomationPracticeSolution.PageObjects
         {
             return IsElementDisplayed(registrationForm);
         }
+        public void ScrollToDatePicker()
+        {
+            IWebElement datePicker = Driver.FindElement(yearsDropdown);
 
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView(true);", datePicker);
+        }
         public bool IsErrorMessageBoxDisplayed()
         {
             return IsElementDisplayed(errorMessageBox);

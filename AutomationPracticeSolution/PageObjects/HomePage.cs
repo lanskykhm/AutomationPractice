@@ -20,5 +20,10 @@ namespace AutomationPracticeSolution.PageObjects
         {
             throw new NotImplementedException();
         }
+        public void SearchForProduct(string productName)
+        {
+            EnterText(By.Id("search_query_top"), productName);
+            Click(By.CssSelector("button[name='submit_search']"));
+        }
     }
 }
